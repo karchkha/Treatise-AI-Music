@@ -24,8 +24,8 @@ import torch
 import time
 
 from pytorch_lightning.strategies.ddp import DDPStrategy
-from latent_diffusion.models.musicldm import MusicLDM, DDPM
-from utilities.data.dataset import TextDataset
+from src.latent_diffusion.models.musicldm import MusicLDM, DDPM
+from src.utilities.data.dataset import TextDataset
 from torch.utils.data import DataLoader
 from pytorch_lightning import seed_everything
 
@@ -37,7 +37,7 @@ def main(config, texts, seed):
     seed_everything(seed)
     batch_size = config["model"]["params"]["batchsize"]
 
-    log_path = os.path.join("logs", os.getlogin())
+    log_path = os.path.join("lightning_logs/musicldm_inference_logs", os.getlogin())
     os.makedirs(log_path, exist_ok=True)
 
     log_id = 0
