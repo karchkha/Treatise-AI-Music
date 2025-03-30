@@ -3,14 +3,16 @@
 _Tornike Karchkhadze, Keren Shao, Shlomo Dubnov_  
 📍 IEEE Big Data 2024 · 🏆 AI music Award  
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/karchkha/Treatise-AI-Music/blob/main/treatise_ai_demo.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/karchkha/Treatise-AI-Music/blob/main/treatise_ai.ipynb)
 
 ---
 
 ## 🔗 Links
 
-- 📝 [Read the full paper (IEEE Big Data 2024)](https://arxiv.org/abs/2312.12898)  
-- 🎧 [Listen to generated music](https://bit.ly/TreatiseAI)  
+- 📝 [Read the full paper (IEEE Big Data 2024)](https://ieeexplore.ieee.org/document/10825824)  
+- 📝 [Read the full paper Arxiv](https://arxiv.org/abs/2412.08944) 
+- 🏆 [iew the Award] (https://music-cms.ucsd.edu/_images/news_images/2024-12_shlomo_award_pdf)
+- 🎧 [Listen to generated music](hthttps://soundcloud.com/memexguy/sets/cornelius-cardews-treatise-interpreted-by-ai-visual-chatgpt-music-latent-diffusion)  
 - 📺 [Watch selected Treatise interpretations](https://youtube.com/playlist?list=PLFBnJMS2Dk5z6l5YWBRPjRmwRHMU7mEHd&si=I0CcBXW1CBXFz8H_)
 
 ---
