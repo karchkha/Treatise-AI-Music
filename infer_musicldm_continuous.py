@@ -28,6 +28,10 @@ from src.latent_diffusion.models.musicldm import MusicLDM, DDPM
 from src.utilities.data.dataset import TextDataset
 from torch.utils.data import DataLoader
 from pytorch_lightning import seed_everything
+from src.utilities.chkpt import ensure_checkpoints
+
+# this will download the checkpoints if they are not already present
+ensure_checkpoints()
 
 # Path to your local inference config
 CONFIG_PATH = 'config/musicldm_inference.yaml'
