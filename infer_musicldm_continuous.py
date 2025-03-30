@@ -37,6 +37,59 @@ ensure_checkpoints()
 CONFIG_PATH = 'config/musicldm_inference.yaml'
 
 
+
+# 🧠 Monkey-patch torch.load to allow loading older .pt/.ckpt files
+# This is a workaround for the issue where torch.load() does not accept the 'weights_only' argument in older versions of PyTorch.
+# Allow problematic NumPy globals for legacy checkpoints
+
+from packaging import version
+
+
+# Only apply monkey-patches if PyTorch >= 2.0
+if version.parse(torch.__version__) >= version.parse("2.0"):
+    print(f"🛠 Applying patches for PyTorch {torch.__version__}...")
+
+    from torch.serialization import add_safe_globals
+    
+    # Patch 1: Allow old NumPy scalar used in checkpoint
+    add_safe_globals([np.core.multiarray.scalar])
+
+    # Patch 2: Monkey-patch torch.load to default to weights_only=False
+    original_load = torch.load
+    def patched_load(*args, **kwargs):
+        if 'weights_only' not in kwargs:
+            kwargs['weights_only'] = False
+        return original_load(*args, **kwargs)
+    torch.load = patched_load
+
+    # Patch 3: Monkey-patch load_state_dict to handle bad CLAP keys
+    original_load_state_dict = torch.nn.Module.load_state_dict
+
+    def safe_load_state_dict(self, state_dict, *args, **kwargs):
+        known_bad_keys = ["text_branch.embeddings.position_ids"]
+        removed_keys = []
+
+        if isinstance(state_dict, dict):
+            for key in known_bad_keys:
+                if key in state_dict:
+                    state_dict.pop(key)
+                    removed_keys.append(key)
+
+        if 'strict' not in kwargs and removed_keys:
+            kwargs['strict'] = False
+
+        if removed_keys:
+            print(f"🐒 Monkey-patch: removed {removed_keys} from checkpoint and set strict={kwargs['strict']}")
+
+        return original_load_state_dict(self, state_dict, *args, **kwargs)
+
+    torch.nn.Module.load_state_dict = safe_load_state_dict
+
+    print("✅ Monkey patches applied successfully.")
+else:
+    print(f"⚠️ PyTorch version {torch.__version__} is below 2.0 — no patching necessary.")
+
+
 def main(config, texts, seed):
     seed_everything(seed)
     batch_size = config["model"]["params"]["batchsize"]
