@@ -41,13 +41,57 @@ We introduce an "outpainting" strategy—overlapping the tail of one generated s
 
 ## 📦 Try It Yourself
 
-This repo includes a minimal Colab notebook where you can:
-- Upload an image
-- See a generated prompt
-- Create music with MusicLDM
-- Hear the result instantly
+Great — here's an updated **Try It Yourself** section for your `README.md`, combining both the **local GPU server** and **Colab** instructions in a clean, user-friendly format:
 
-Just click the badge above or [open the notebook here](https://colab.research.google.com/github/karchkha/Treatise-AI-Music/blob/main/treatise_ai.ipyn).
+---
+
+## 🚀 Try It Yourself
+
+You can run this project in two ways:
+
+---
+
+### 🖥️ Option 1: Run Locally (GPU Required)
+
+If you have access to a GPU machine (preferably with **at least 8 GB VRAM**), you can run the model directly from this repository.
+
+#### 1. Clone the repo:
+```bash
+git clone https://github.com/karchkha/Treatise-AI-Music.git
+cd Treatise-AI-Music
+```
+
+#### 2. Prepare your prompts:
+You’ll need a list of sentences that describe the music you'd like to generate.  
+You can either:
+- Write your own,
+- Or upload graphic notation images (e.g., from *Treatise*) to **ChatGPT** and ask it to describe them in words.
+
+Save your sentence prompts in a plain text file (one sentence per line).  
+Two example files are included in this repo:
+- `treatise_commands.txt`
+- `treatise_commands_all.txt`
+
+#### 3. Run the generation script:
+```bash
+python infer_musicldm_continuous.py --texts treatise_commands.txt
+```
+
+This will generate audio clips and save them in `lightning_logs/musicldm_inference_logs/`.
+
+---
+
+### 🔗 Option 2: Use Google Colab
+
+Just click below to open our interactive notebook in Colab:
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/karchkha/Treatise-AI-Music/blob/main/treatise_ai.ipynb)
+
+In the Colab notebook, you'll be guided through:
+- Installing dependencies
+- Uploading or selecting a prompt file
+- Running the MusicLDM generation
+- Listening to the generated music directly in your browser
 
 ---
 

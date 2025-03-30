@@ -41,7 +41,7 @@ def main(config, texts, seed):
     seed_everything(seed)
     batch_size = config["model"]["params"]["batchsize"]
 
-    log_path = os.path.join("lightning_logs/musicldm_inference_logs", os.getlogin())
+    log_path ="lightning_logs/musicldm_inference_logs"
     os.makedirs(log_path, exist_ok=True)
 
     log_id = 0
