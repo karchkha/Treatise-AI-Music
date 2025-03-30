@@ -39,12 +39,6 @@ We introduce an "outpainting" strategy—overlapping the tail of one generated s
 
 ---
 
-## 📦 Try It Yourself
-
-Great — here's an updated **Try It Yourself** section for your `README.md`, combining both the **local GPU server** and **Colab** instructions in a clean, user-friendly format:
-
----
-
 ## 🚀 Try It Yourself
 
 You can run this project in two ways:
