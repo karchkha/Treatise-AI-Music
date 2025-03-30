@@ -1,0 +1,64 @@
+# Treatise-AI-Music Inference Configuration
+# Based on MusicLDM by Ke Chen et al.
+# Adapted for: Interpreting Graphic Notation with MusicLDM (Karchkhadze et al., 2024)
+
+project_name: "treatise-ai-music"
+log_directory: "lightning_logs/musicldm_inference_logs"
+test_mode: true
+
+model:
+  target: latent_diffusion.models.musicldm.MusicLDM
+  num_workers: 4
+  params:
+    batchsize: 1
+    first_stage_key: fbank
+    cond_stage_key: waveform
+    latent_t_size: 256
+    latent_f_size: 16
+    channels: 8
+    cond_stage_trainable: false
+    conditioning_key: film
+    ckpt_path: lightning_logs/musicldm_checkpoints/musicldm-ckpt.ckpt
+
+    unet_config:
+      target: latent_diffusion.modules.diffusionmodules.openaimodel.UNetModel
+      params:
+        in_channels: 8
+        out_channels: 8
+        model_channels: 128
+        num_res_blocks: 2
+        channel_mult: [1, 2, 3, 5]
+        num_head_channels: 32
+        use_spatial_transformer: true
+        extra_film_condition_dim: 512
+        extra_film_use_concat: true
+        attention_resolutions: [8, 4, 2]
+
+    first_stage_config:
+      target: latent_encoder.autoencoder.AutoencoderKL
+      params:
+        embed_dim: 8
+        mel_num: 64
+        ddconfig:
+          z_channels: 8
+          resolution: 256
+          in_channels: 1
+          out_ch: 1
+          ch: 128
+          ch_mult: [1, 2, 4]
+          num_res_blocks: 2
+          attn_resolutions: []
+          dropout: 0.0
+
+    cond_stage_config:
+      target: latent_diffusion.modules.encoders.modules.CLAPAudioEmbeddingClassifierFreev2
+      params:
+        pretrained_path: lightning_logs/musicldm_checkpoints/clap-ckpt.pt
+        sampling_rate: 16000
+        embed_mode: audio
+        unconditional_prob: 0.1
+
+    evaluation_params:
+      unconditional_guidance_scale: 2.0
+      ddim_sampling_steps: 200
+      n_candidates_per_samples: 5
