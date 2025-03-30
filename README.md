@@ -11,8 +11,8 @@ _Tornike Karchkhadze, Keren Shao, Shlomo Dubnov_
 
 - 📝 [Read the full paper (IEEE Big Data 2024)](https://ieeexplore.ieee.org/document/10825824)  
 - 📝 [Read the full paper Arxiv](https://arxiv.org/abs/2412.08944) 
-- 🏆 [iew the Award] (https://music-cms.ucsd.edu/_images/news_images/2024-12_shlomo_award_pdf)
-- 🎧 [Listen to generated music](hthttps://soundcloud.com/memexguy/sets/cornelius-cardews-treatise-interpreted-by-ai-visual-chatgpt-music-latent-diffusion)  
+- 🏆 [Wiew the Award](https://music-cms.ucsd.edu/_images/news_images/2024-12_shlomo_award_pdf)
+- 🎧 [Listen to generated music](https://soundcloud.com/memexguy/sets/cornelius-cardews-treatise-interpreted-by-ai-visual-chatgpt-music-latent-diffusion)  
 - 📺 [Watch selected Treatise interpretations](https://youtube.com/playlist?list=PLFBnJMS2Dk5z6l5YWBRPjRmwRHMU7mEHd&si=I0CcBXW1CBXFz8H_)
 
 ---
