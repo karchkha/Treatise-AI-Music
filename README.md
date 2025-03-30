@@ -55,7 +55,16 @@ git clone https://github.com/karchkha/Treatise-AI-Music.git
 cd Treatise-AI-Music
 ```
 
-#### 2. Prepare your prompts:
+#### 2. Set up the environment:
+
+We recommend using **conda** with **Python 3.9.16**. You can install all required packages using the provided environment file:
+
+```bash
+conda env create -f musicldm_env.yml
+conda activate musicldm_env
+```
+
+#### 3. Prepare your prompts:
 You’ll need a list of sentences that describe the music you'd like to generate.  
 You can either:
 - Write your own,
@@ -66,7 +75,7 @@ Two example files are included in this repo:
 - `treatise_commands.txt`
 - `treatise_commands_all.txt`
 
-#### 3. Run the generation script:
+#### 4. Run the generation script:
 ```bash
 python infer_musicldm_continuous.py --texts treatise_commands.txt
 ```
