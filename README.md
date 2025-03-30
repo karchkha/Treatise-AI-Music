@@ -47,7 +47,7 @@ This repo includes a minimal Colab notebook where you can:
 - Create music with MusicLDM
 - Hear the result instantly
 
-Just click the badge above or [open the notebook here](https://colab.research.google.com/github/karchkha/Treatise-AI-Music/blob/main/treatise_ai_demo.ipynb).
+Just click the badge above or [open the notebook here](https://colab.research.google.com/github/karchkha/Treatise-AI-Music/blob/main/treatise_ai.ipyn).
 
 ---
 
@@ -65,7 +65,7 @@ We also thank **Wilfrido Terrazas**, Associate Professor of Music at the Univers
 
 ### ⚠️ License and Credits
 
-This project builds upon [**MusicLDM**](https://github.com/ChenKeV/MusicLDM) by **Ke Chen, Yusong Wu, and Haohe Liu**:
+This project builds upon [**MusicLDM**](https://github.com/RetroCirce/MusicLDM) by **Ke Chen, Yusong Wu, and Haohe Liu**:
 
 > *MusicLDM: Enhancing Novelty in Text-to-Music Generation Using Beat-Synchronous Mixup Strategies*
 
